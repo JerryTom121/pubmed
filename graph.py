@@ -3,10 +3,6 @@ import numpy as np
 import pandas as pd
 import networkx as nx
 
-"""
-http://eprints.pascal-network.org/archive/00001220/01/powergrowth-kdd05.pdf
-First, most of these graphs densify over time, with the number of edges growing super- linearly in the number of nodes. Second, the average dis- tance between nodes often shrinks over time, in contrast to the conventional wisdom that such distance parameters should increase slowly as a function of the number of nodes (like O(log n) or O(log(log n)).
-"""
 
 def printStats(df):
 	rs = pd.DataFrame()
@@ -18,8 +14,6 @@ def printStats(df):
 		d["#nodes"] = g.number_of_nodes()
 		d["#edges"] = g.number_of_edges()
 		d["clustering coefficient"] = nx.average_clustering(g)
-		# h = nx.connected_component_subgraphs(g)[0]
-		# d['diameter'] = nx.diameter(h)
 		dist = centrality_distribution(g)
 		d['entropy'] = entropy(dist)
 		tmp = pd.Series.from_array(d)
@@ -65,8 +59,6 @@ def buildGraph(df):
 		if len(edges)>0:
 			for edge in edges:
 				g.add_edge(edge[0], edge[1],{'year':year})
-			# print edges
-		# break
 	return g
 
 def buildGraphByTopic(df, topic, decade):
@@ -77,5 +69,4 @@ def buildGraphByTopic(df, topic, decade):
 	r = range(1,g.number_of_nodes())
 	mapping=dict(zip(g.nodes(),r))
 	h=nx.relabel_nodes(g,mapping)
-	# nx.write_gexf(h, 'stress.gexf')
 	return h
