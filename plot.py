@@ -63,26 +63,6 @@ def plotSNA():
 	fig1.savefig('SNA-density.png', format='png',transparent=True)#, bbox_inches='tight')	
 	return df_min
 
-# def plotSNABar():
-# 	global fs
-# 	df = plotSNA()
-# 	fig1 =plt.figure(dpi=360, figsize=fs)
-# 	ax1 = fig1.add_subplot(111)
-
-# 	nodes = df[(df.index==1951)|((df.index==2009))]['#authors']
-# 	edges = df[(df.index==1951)|((df.index==2009))]['#co-authorships']
-# 	nodes = pd.DataFrame(nodes)
-# 	edges = pd.DataFrame(edges)
-# 	tmp = nodes.append(edges)
-# 	tmp = tmp.reset_index()
-# 	tmp['year'] = tmp['year'].astype(int)
-# 	tmp = tmp.set_index('year')
-# 	plt.bar(nodes.index,nodes['#authors'])
-# 	plt.bar(edges.index,edges['#co-authorships'])
-# 	plt.show()
-# 	fig1.savefig('SNA-Bar.png', format='png',transparent=True)#, bbox_inches='tight')
-# 	return tmp
-
 def fetchTerm(term):
 	global ddf
 	d = {}
@@ -113,7 +93,6 @@ def plotTopic(topics):
 		for k in kk:
 			tmp = fetchTerm(k)
 			tmp.rename(columns={k:t}, inplace=True)
-			# print tmp
 			if len(df)>0:
 				if len(kk)>1:
 					df = df+tmp
@@ -131,7 +110,7 @@ def plotTopic(topics):
 
 	ax1.tick_params(pad=10)
 	plt.show()
-	fig1.savefig('Topics-'+'-'.join(topics)+'.png', format='png',transparent=True)#, bbox_inches='tight')	
+	fig1.savefig('Topics-'+'-'.join(topics)+'.png', format='png',transparent=True)
 	return rs
 
 def plotResearcherThroughput():
@@ -259,4 +238,4 @@ def plotBar():
 
 	plt.tight_layout()
 	plt.show()
-	fig.savefig('SNA-Bar.png', format='png',transparent=True)#, bbox_inches='tight')
+	fig.savefig('SNA-Bar.png', format='png',transparent=True)
