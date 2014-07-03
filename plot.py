@@ -18,7 +18,6 @@ plt.xkcd()
 
 def plotSNA():
 	global fs
-	# prop = fm.FontProperties(fname='/Users/gg3964/Library/Fonts/Humor-Sans.ttf')
 	df = pd.read_pickle('sna.pickle')
 	fig1 =plt.figure(dpi=360, figsize=fs)
 	ax1 = fig1.add_subplot(111)
@@ -188,7 +187,6 @@ def plotResearcher():
 	fig1 =plt.figure(dpi=360, figsize=(10,3))
 	ax1 = fig1.add_subplot(111)
 	ax1 = tmp['percentage'].plot(legend=True, label='% of researchers with activity more than 5 years')
-	# ax1.xaxis.labelpad = 80
 
 	plt.tight_layout()
 	fig1.savefig('Researcher-pctMoreThan5years.png', format='png',transparent=True)
@@ -220,8 +218,6 @@ def stackTopic(df):
 	i = range(1950,2010,5)
 	v = df.values.T
 	plt.stackplot(i, v,baseline='wiggle')
-	# p = Rectangle((0, 0), 1, 1, fc="r")
-	# legend([p], ["Red Rectangle"])
 	return
 
 def plotBar():
@@ -255,8 +251,6 @@ def plotBar():
 	                 log=True,
 	                 label='Co-authorships')
 
-	# ax.set_ylim(10000,1054331006)
-
 	plt.xlabel('Year')
 	plt.ylabel('Size')
 	plt.title('Authors vrs. co-authorships')
@@ -266,10 +260,3 @@ def plotBar():
 	plt.tight_layout()
 	plt.show()
 	fig.savefig('SNA-Bar.png', format='png',transparent=True)#, bbox_inches='tight')
-
-
-# %run plot.py
-# plotSNA()
-# rs = plotTopic(['dna', 'cancer','pregnancy'])
-# rs = plotResearcherThroughput()
-# rs = plotResearcher()
