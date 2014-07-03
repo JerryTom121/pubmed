@@ -1,7 +1,7 @@
 pubmed
 ======
 
-pubmed dataset visualisation
+PUBMED dataset visualisation
 
 
 The proposed visualisation presents the results from 3 individual and parallel data analyses. These analyses are based on the information provided from the PUBMED dataset only[1, 2]. The first analysis and visualisation is based on the construction of the annual co-authorship graph (see “Collaboration in research” in the submitted visualisation). For each year, a graph is constructed where the nodes represent authors and edges represent co-authorships. The result of this analysis shows that the size of the graph (number of nodes and number of edges) increases exponentially over time. More interestingly, the density of the graph is increasing. This is depicted through various measurements, such as the relative increase in edges, the increase in entropy [3] and average clustering coefficient. These measurements allow us to draw the conclusion that each year research is conducted by more researchers, produces more publications and becomes more collaborative in nature.
