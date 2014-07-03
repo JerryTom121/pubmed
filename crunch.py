@@ -11,7 +11,6 @@ def getAuthorCount(st):
 def getAuthors(st):
 	if type(st) is str:
 		return st.split("|")
-	# print "something's wrong", st
 	return []
 
 def getAuthorsAsDict(df):
@@ -60,7 +59,6 @@ def getAuthorsFirstLastPub(df):
 			print i
 		authors = row[1][5]
 		year = row[1][2]
-		# print "year is",year
 		if type(authors) is list:
 			for author in authors:
 				if (firstyear[author]>year):
@@ -89,9 +87,3 @@ def getLifeSpan(df):
 		print str(start)+"'s\t" + str(decadeDF.publications.mean())
 		start = start+step
 	return tmp
-
-
-# df_min['authors'].apply(lambda x: pd.Series(x.split('|'))).stack()
-
-# streamgraph
-# https://source.opennews.org/en-US/articles/sotu-twitter/
